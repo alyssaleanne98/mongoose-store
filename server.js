@@ -39,6 +39,9 @@ db.on("disconnected", () => console.log("mongo disconnected"))
 
 // create 
 app.post("/books", (req, res) => {
+    // take in some data from the user
+    // save that data to our booklist db
+    // send user back a verification message 
     res.send("received")
 })
 
