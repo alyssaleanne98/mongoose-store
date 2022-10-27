@@ -29,15 +29,6 @@ db.on("disconnected", () => console.log("mongo disconnected"))
 app.use(express.urlencoded({ extended: true}))
 app.use(methodOverride ("_method"))
 
-
-// import our book model to use 
-
-// config 
-// const port = 4000
-
-
-
-
 // I N D U C E Index New Delete Update Create Edit Show 
 
 //Index
@@ -64,7 +55,17 @@ app.post("/books", (req, res) => {
     })
 })
 
+//Show 
+
+app.get("/books/:id", (req, res) => {
+    res.send("show route works")
+})
+
+
 //New 
+// app.get("/books/new", (req, res) => {
+//     res.send("New works")
+// })
 
 //Listener
 app.listen(PORT, ()=> console.log(`You are listening to the smooth sounds of port ${PORT}...`))
