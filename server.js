@@ -32,14 +32,19 @@ app.use(methodOverride ("_method"))
 // I N D U C E Index New Delete Update Create Edit Show 
 
 //Index
-app.get('/books', (req, res) => {
-    Books.find({}, (error, allBooks) => {
-        console.log(error)
-        res.render('index.ejs', {
-            allBooks: allBooks
-        })
-    })
-});
+// app.get('/books', (req, res) => {
+//     Books.find({}, (error, allBooks) => {
+//         console.log(error)
+//         res.render('index.ejs', {
+//             allBooks: allBooks
+//         })
+//     })
+// });
+
+//New 
+app.get("/books/new", (req, res) => {
+    res.render("new.ejs")
+})
 
 
 // create 
@@ -47,7 +52,7 @@ app.post("/books", (req, res) => {
     if (req.body.completed === "on") {
         req.body.completed = true 
     } else {
-        req.body.completed === false
+        req.body.completed = false
     }
 
     Books.create(req.body, (error, createdBooks) => {
@@ -57,15 +62,12 @@ app.post("/books", (req, res) => {
 
 //Show 
 
-app.get("/books/:id", (req, res) => {
-    res.send("show route works")
-})
-
-
-//New 
-// app.get("/books/new", (req, res) => {
-//     res.send("New works")
+// app.get("/books/:id", (req, res) => {
+//     res.send("show route works")
 // })
+
+
+
 
 //Listener
 app.listen(PORT, ()=> console.log(`You are listening to the smooth sounds of port ${PORT}...`))
