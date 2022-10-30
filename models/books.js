@@ -9,7 +9,7 @@ const bookSchema = new mongoose.Schema({
 })
 
 // this is where we define our model using the schema we created 
-const Books = mongoose.model("Books", bookSchema)
+const Books = mongoose.model("Book", bookSchema)
 
 
 // this is how we send vars to other files 
